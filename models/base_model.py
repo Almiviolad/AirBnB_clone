@@ -13,9 +13,9 @@ class BaseModel:
         if kwargs is not None and kwargs != {}:
             for key, value in kwargs.items():
                 if key != "__class__":
-                    self.__dict__[key] =value    
+                    self.__dict__[key] = value
                 if key == "created_at" or key == "updated_at":
-                    self.__dict__[key] = datetime.fromisoformat(value)                 
+                    self.__dict__[key] = datetime.fromisoformat(value)
                 else:
                     continue
         else:
@@ -25,7 +25,8 @@ class BaseModel:
             storage.new(self)
 
     def __str__(self):
-        return("[{}] ({}) {}".format(self.__class__.__name__, self.id, self.__dict__))
+        return("[{}] ({}) {}".format(self.__class__.__name__,
+                                     self.id, self.__dict__))
 
     def save(self):
         self.updated_at = datetime.now()
@@ -36,4 +37,4 @@ class BaseModel:
         new_dict["__class__"] = self.__class__.__name__
         new_dict["created_at"] = new_dict["created_at"].isoformat()
         new_dict["updated_at"] = new_dict["updated_at"].isoformat()
-        return new_dict  
+        return new_dict

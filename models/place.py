@@ -2,6 +2,7 @@
 """module tahat contains place class"""
 from models.base_model import BaseModel
 
+
 class Place(BaseModel):
     """definition of class place that inherits from BaseModel"""
     city_id = ""

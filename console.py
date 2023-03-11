@@ -7,9 +7,11 @@ import json
 
 
 """console program for the airbnb clone"""
+
+
 class HBNBCommand(cmd.Cmd):
     """The command line class that inherits from Cmd class"""
-    prompt="(hbnb)"
+    prompt = "(hbnb)"
 
     def do_EOF(self, line):
         """EOf command handler to exit the command line
@@ -26,7 +28,7 @@ class HBNBCommand(cmd.Cmd):
             self: Referring to the class
         """
         print("ctrl+d: \n Exits the console \n Returns True(1)")
-        
+
     def do_quit(self, line):
         """quit command handler to exit the console
         Args:
@@ -53,7 +55,7 @@ ole \n Returns True(1)")
         pass
 
     def do_create(self, class_name):
-        """Creates a new instance of BaseModel, saves it (to the JSON file) and prints the id. """
+        """Creates a new instance of BaseModel"""
         if class_name == "" or class_name is None:
             print("** class name missing **")
         elif class_name not in storage.classses():
@@ -67,7 +69,7 @@ ole \n Returns True(1)")
         if line == "" or line is None:
             print("** class name missing **")
         else:
-            args=line.split(" ")
+            args = line.split(" ")
             if args[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(args) < 2:
@@ -80,11 +82,11 @@ ole \n Returns True(1)")
                     print(storage.all()[key])
 
     def do_destroy(self, line):
-        """Deletes an instance based on the class name and id (save the change into the JSON file). Ex: $ destroy BaseModel 1234-1234-1234."""
+        """Deletes an instance"""
         if line == "" or line is None:
             print("** class name missing **")
         else:
-            args=line.split(" ")
+            args = line.split(" ")
             if args[0] not in storage.classes():
                 print("** class doesn't exist **")
             elif len(args) < 2:
@@ -97,17 +99,19 @@ ole \n Returns True(1)")
                     del (storage.all()[key])
 
     def do_all(self, class_name):
-        """Prints all string representation of all instances based or not on the class name. Ex: $ all BaseModel or $ all."""
+        """Prints all string representation of all instances"""
         if class_name != "" or class_name is not None:
             if class_name not in storage.classes():
                 print("** class doesn't exist **")
             else:
-                print([str(value) for key, value in storage.all().items() if class_name == value.__class__.__name__])
+                print([str(value)
+                       for key, value in storage.all().items()
+                       if class_name == value.__class__.__name__])
         else:
-            print([str(obj) for k,obj in storage.all().items()])
+            print([str(obj) for k, obj in storage.all().items()])
 
     def do_update(self, line):
-        """Updates an instance based on the class name and id by adding or updating attribute (save the change into the JSON file). Ex: $ update BaseModel 1234-1234-1234 email "aibnb@mail.com". update <class name> <id> <attribute name> "<attribute value>"""
+        """Updates an instance """
         if line == "" or line is None:
             print("** class name missing **")
             return
@@ -148,9 +152,10 @@ ole \n Returns True(1)")
                     try:
                         value = cast(value)
                     except ValueError:
-                        pass  # fine, stay a string then
-                setattr(storage.all()[key], attribute, value)
-                storage.all()[key].save()                    
+                        pass
+                    setattr(storage.all()[key], attribute, value)
+                storage.all()[key].save()
+
 
 if __name__ == '__main__':
-    HBNBCommand().cmdloop()    
+    HBNBCommand().cmdloop()
