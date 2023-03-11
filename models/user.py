@@ -8,7 +8,3 @@ class User(BaseModel):
     password=""
     first_name=""
     last_name=""
-
-    def __init__(*args, **kwargs):
-        """class constructor to initialise class"""
-        super().__init__(*args, **kwargs)
