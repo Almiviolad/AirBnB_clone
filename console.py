@@ -58,10 +58,10 @@ ole \n Returns True(1)")
         """Creates a new instance of BaseModel"""
         if class_name == "" or class_name is None:
             print("** class name missing **")
-        elif class_name not in storage.classses():
+        elif class_name not in storage.classes():
             print("** class doesn't exist **")
         else:
-            new_model = storage.classes()[class_name]
+            new_model = storage.classes()[class_name]()
             new_model.save()
             print(new_model.id)
 
