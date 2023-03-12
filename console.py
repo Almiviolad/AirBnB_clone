@@ -1,12 +1,12 @@
 #!/usr/bin/python3
+"""console program for the airbnb clone"""
+
 import cmd
 from models.base_model import BaseModel
 from models import storage
 import re
 import json
 
-
-"""console program for the airbnb clone"""
 
 
 class HBNBCommand(cmd.Cmd):
@@ -20,6 +20,7 @@ class HBNBCommand(cmd.Cmd):
         Return:
             True
         """
+        print()
         return True
 
     def do_quit(self, line):
