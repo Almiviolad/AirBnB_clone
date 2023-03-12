@@ -11,7 +11,7 @@ import json
 
 class HBNBCommand(cmd.Cmd):
     """The command line class that inherits from Cmd class"""
-    prompt = "(hbnb)"
+    prompt = "(hbnb) "
 
     def do_EOF(self, line):
         """EOf command handler to exit the command line
