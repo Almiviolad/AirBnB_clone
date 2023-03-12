@@ -22,13 +22,6 @@ class HBNBCommand(cmd.Cmd):
         """
         return True
 
-    def help_EOF(self):
-        """Provides help on the usage of EOF command
-        Args:
-            self: Referring to the class
-        """
-        print("ctrl+d: \n Exits the console \n Returns True(1)")
-
     def do_quit(self, line):
         """quit command handler to exit the console
         Args:
@@ -37,15 +30,6 @@ class HBNBCommand(cmd.Cmd):
             True
         """
         return True
-
-    def help_quit(self):
-
-        """provides help on quit command to exit the console
-        Args:
-            self: Referring to the class
-        """
-        print("quit: \n Exits the cons\
-ole \n Returns True(1)")
 
     def emptyline(self):
         """emptyline handler, tells the console what to do incase of emptyline
