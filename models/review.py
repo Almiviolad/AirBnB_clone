@@ -8,7 +8,3 @@ class Review(BaseModel):
     place_id = ""
     user_id = ""
     text = ""
-
-    def __init__(*args, **kwargs):
-        """class constructor to initialise class"""
-        super().__init__(*args, **kwargs)
