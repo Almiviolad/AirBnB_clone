@@ -8,7 +8,6 @@ import re
 import json
 
 
-
 class HBNBCommand(cmd.Cmd):
     """The command line class that inherits from Cmd class"""
     prompt = "(hbnb) "
