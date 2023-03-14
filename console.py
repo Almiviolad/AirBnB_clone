@@ -81,6 +81,7 @@ class HBNBCommand(cmd.Cmd):
                     print("** no instance found **")
                 else:
                     del (storage.all()[key])
+                    storage.save()
 
     def do_all(self, class_name):
         """Prints all string representation of all instances"""
@@ -137,7 +138,7 @@ class HBNBCommand(cmd.Cmd):
                         value = cast(value)
                     except ValueError:
                         pass
-                    setattr(storage.all()[key], attribute, value)
+                setattr(storage.all()[key], attribute, value)
                 storage.all()[key].save()
 
 
